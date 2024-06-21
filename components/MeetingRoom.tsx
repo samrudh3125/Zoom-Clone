@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'
 import EndCall from './EndCall';
 import Loader from './Loader';
-import { Toast } from './ui/toast';
 
 
 const MeetingRoom = () => {
@@ -17,7 +16,8 @@ const MeetingRoom = () => {
   const {useCallCallingState}=useCallStateHooks();
   const callingState=useCallCallingState();
   if(callingState==CallingState.LEFT){
-    return router.push('/dashboard');
+    router.push('/dashboard');
+    return <Loader/>
   }
   else if(callingState!=CallingState.JOINED)return <Loader/>
   return (

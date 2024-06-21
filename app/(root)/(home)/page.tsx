@@ -3,7 +3,7 @@ import Loader from '@/components/Loader';
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
     const router=useRouter();
     router.push('/dashboard');
   return (
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
