@@ -73,7 +73,7 @@ const Page = () => {
     if(loading)return <Loader/>
   return (
     <div className='w-full h-full relative text-white'>
-      <div className='absolute w-[1080px] h-[260px] left-75 justify-between  flex flex-col gap-5 md:flex'>
+      <div className='absolute w-[1080px] h-auto left-75 justify-between flex gap-5'>
         <HomeCard key={"New Meeting"} title='New Meeting' description='Setup a new meeting' img='plus.svg' handleClick={()=>{setMeetingState("isInstantMeeting")}}/>
         <HomeCard key={"Join Meeting"} title='Join Meeting' description='via invitation link' img='join.svg' className='bg-blue-3' handleClick={()=>{setMeetingState('isJoiningMeeting')}}/>
         <HomeCard key={"Schedule Meeting"} title='Schedule Meeting' description='Plan your meeting' img='schedule.svg' className='bg-[#830EF9]' handleClick={()=>{setMeetingState("isScheduleMeeting")}}/>
@@ -82,7 +82,7 @@ const Page = () => {
       <h2 className='w-[500px] h-[42px] absolute top-[300px] left-75 font-bold text-4xl/[27px]'>
         Today’s Upcoming Meetings
       </h2>
-      <div className='absolute top-[350px] left-75 flex flex-col gap-y-5 md:flex gap-x-2 py-6'>
+      <div className='absolute top-[350px] left-75 flex gap-x-2 py-6'>
         {upcomingCalls&&upcomingCalls[0]&&<MeetingCard key={upcomingCalls[0].id} type='upcoming' meeting={{title:upcomingCalls[0].state.custom.description||'No Description',date:upcomingCalls[0].state.startsAt?.toLocaleString()||"",link:`${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(upcomingCalls[0].id)}`}} handleClick={()=>{
             router.push(`/meeting/${upcomingCalls[0].id}`);
           }}/>}

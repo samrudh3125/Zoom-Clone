@@ -15,7 +15,7 @@ const Page = () => {
         <h2 className='absolute w-[279px] h-[42px] top-[119px] left-75 font-bold text-white text-3xl'>
           Recordings
         </h2>
-        <div className='absolute h-auto w-auto top-[191px] left-[300px] grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5'>
+        <div className='absolute h-auto w-auto top-[191px] left-[300px] grid grid-cols-2 gap-x-10 gap-y-5'>
       {callRecordings&&callRecordings.length>0?(
         callRecordings.map((call:Call|CallRecording)=>(
           <RecordingCard key={(call as Call).id} title={(call as CallRecording).filename?.substring(0,20)||"Loren Ipsum"} startAt={(call as CallRecording).start_time} endsAt={(call as CallRecording).end_time} link={(call as CallRecording).url}/>
